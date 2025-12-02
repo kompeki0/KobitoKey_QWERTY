@@ -5,6 +5,12 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    dpi_slow: dpi_slow {
+        compatible = "zmk,behavior-mod-mouse";
+        #binding-cells = <0>;
+        speed-divisor = <4>;
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -113,17 +119,13 @@
             label = "NUMBER";
             bindings = <
 &trans     &kp N1  &kp N2  &kp N3     &kp DOLLAR  &kp LT  &kp EXCL     &kp QUESTION    &kp CARET     &trans
-&trans  &kp N4  &kp N5  &kp N6     &trans  &kp EQUAL   &kp plus    &kp MINUS    &kp ASTERISK    &kp SLASH
-&trans     &kp N7  &kp N8  &kp N9     &trans  &kp GT  &kp   &trans  &kp PERCENT   &kp BACKSLASH
+&trans  &kp N4  &kp N5  &kp N6     &trans  &kp EQUAL   &kp PLUS    &kp MINUS    &kp ASTERISK    &kp SLASH
+&trans     &kp N7  &kp N8  &kp N9     &trans  &kp GT  &kp AMPERSAND   &trans  &kp PERCENT   &kp BACKSLASH
 &trans     &trans  &trans  &kp N0  &kp HASH  &trans     &trans     &trans    &trans     &trans
             >;
         };
 
-        &dpi_slow {
-            behavior = "zmk,behavior-mod-mouse";
-            speed-divisor = <4>;
-        };
-
+        
         layer3 {
             label = "MOUSE";
             bindings = <
