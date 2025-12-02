@@ -5,11 +5,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    dpi_slow: dpi_slow {
-        compatible = "zmk,behavior-mod-mouse";
-        #binding-cells = <0>;
-        speed-divisor = <4>;
-    };
 
     combos {
         compatible = "zmk,combos";
@@ -129,7 +124,7 @@
         layer3 {
             label = "MOUSE";
             bindings = <
-&kp LEFT_ALT     &kp LG(TAB)  &kp LG(E)    &kp LG(D)    &dpi_slow  &kp LC(L)  &mkp MB1  &mkp MB3  &mkp MB2  &kp RIGHT_ALT
+&kp LEFT_ALT     &kp LG(TAB)  &kp LG(E)    &kp LG(D)    &trans  &kp LC(L)  &mkp MB1  &mkp MB3  &mkp MB2  &kp RIGHT_ALT
 &kp LEFT_SHIFT     &trans  &trans    &kp LS(LG(S))    &trans  &trans  &kp C_AC_BACK    &kp C_AC_REFRESH    &kp C_AC_FORWARD    &kp RIGHT_SHIFT
 &trans     &trans  &trans    &trans    &trans  &trans  &trans    &trans    &trans    &trans
 &kp LSHFT  &trans  &kp LCMD  &trans  &to 0   &trans  &trans    &trans    &to 0     &kp RALT
