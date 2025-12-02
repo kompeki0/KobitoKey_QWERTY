@@ -115,9 +115,9 @@
             bindings = <
 &trans     &kp N1  &kp N2  &kp N3     &kp DOLLAR  &kp LT  &kp EXCL     &kp QUESTION    &kp CARET     &trans
 &trans  &kp N4  &kp N5  &kp N6     &trans  &kp EQUAL   &kp PLUS    &kp MINUS    &kp ASTERISK    &kp SLASH
-&trans     &kp N7  &kp N8  &kp N9     &trans  &kp GT  &kp AMPERSAND   &trans  &kp PERCENT   &kp BACKSLASH
-&trans     &trans  &trans  &kp N0  &kp HASH  &trans     &trans     &trans    &trans     &trans
-            >;
+&trans     &kp N7  &kp N8  &kp N9     &trans  &kp GT  &kp AMPERSAND   &kp PIPE  &kp PERCENT   &kp BACKSLASH
+&trans     &trans  &kp N0  &kp HASH  &trans     &trans     &trans    &trans     &trans    &trans
+         >;
         };
 
         
