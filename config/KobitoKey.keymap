@@ -131,7 +131,7 @@
             >;
         };
 
-        layer_4 {
+        layer4 {
             label = "ARROW";
             bindings = <
 &trans  &trans  &kp UP  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -151,7 +151,7 @@
             >;
         };
 
-        layer_6 {
+        layer6 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
