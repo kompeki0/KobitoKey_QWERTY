@@ -3,6 +3,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/modifiers.h>
+
 
 // OS設定を日本語キーボードのまま使用するための変換定義
 #define JP_DQUOTE       AT                // "
@@ -30,6 +32,20 @@
 #define JP_HANZEN       GRAVE             // 半角/全角
 
 / {
+    behaviors {
+        jis_SEMI: jis_SEMI {
+            compatible = "zmk,behavior-mod-morph";
+            label = "jis_SEMI";
+            #binding-cells = <0>;
+
+            // bindings = <通常時の出力>, <Shift押されている時の出力>
+            // 例: 通常は ;、Shift付きは : （JIS用マクロ JP_COLON を利用）
+            bindings = <&kp SEMI>, <&kp JP_COLON>;
+
+            // 左右どちらかの Shift が押されていたらモーフ側（JP_COLON）を使う
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -112,6 +128,75 @@
                 , <&macro_tap &kp DEL>
                 ;
         };
+        ime_hira: ime_hira {
+            label = "IME_HIRA";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F6>;
+        };
+
+        ime_kata: ime_kata {
+            label = "IME_KATA";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F7>;
+        };
+
+        ime_hw_kata: ime_hw_kata {
+            label = "IME_HW_KATA";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F8>;
+        };
+
+        ime_fw_alnum: ime_fw_alnum {
+            label = "IME_FW_ALNUM";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F9>;
+        };
+
+        ime_hw_alnum: ime_hw_alnum {
+            label = "IME_HW_ALNUM";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F10>;
+        };
+
+        move_prev_word: move_prev_word {
+            label = "MOVE_PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+
+        move_next_word: move_next_word {
+            label = "MOVE_NEXT_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+
+        select_prev_word: select_prev_word {
+            label = "SELECT_PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap   &kp LEFT>
+                , <&macro_release &kp LSHFT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
     };
     keymap {
     compatible = "zmk,keymap";
@@ -120,8 +205,8 @@
     default_layer {
         bindings = <
 &kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&kp A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &mo 4
-&lt 1 Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &kp DOT    &kp RSHFT
+&kp A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt 4 jis_SEMI
+&lt 1 Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
 &kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
         >;
     };
@@ -155,7 +240,7 @@
 &kp LALT     &kp LG(TAB)  &kp LG(E)        &kp LG(D)          &trans  &kp LC(L)    &mkp MB1       &mkp MB3       &mkp MB2       &kp RALT
 &kp LSHFT    &trans       &trans           &kp LS(LG(S))      &trans  &trans       &kp C_AC_BACK  &kp C_AC_REFRESH  &kp C_AC_FORWARD  &kp RSHFT
 &trans       &trans       &trans           &trans             &trans  &trans       &trans         &trans         &trans         &trans
-&kp LSHFT    &trans       &kp LCMD         &trans             &to 0   &trans       &trans         &trans         &to 0          &kp RALT
+&kp LSHFT    &trans       &to 0         &to 0            &to 0   &trans       &trans         &trans         &to 0          &kp RALT
         >;
     };
 
@@ -163,8 +248,8 @@
     layer4 {
         label = "ARROW";
         bindings = <
-&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT    &kp DOWN   &kp RIGHT  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &kp ime_fw_kata  &trans  &trans
+&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &kp ime_hw_kata  &kp ime_hira  &kp ime_kata  &kp ime_hw_alnum  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
         >;
