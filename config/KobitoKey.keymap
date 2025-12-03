@@ -39,26 +39,31 @@
             label = "jis_SEMI";
             #binding-cells = <0>;
 
-            // bindings = <通常時の出力>, <Shift押されている時の出力>
-            // 例: 通常は ;、Shift付きは : （JIS用マクロ JP_COLON を利用）
+            // 通常タップ → ';'、Shift 押されているとき → ':'
             bindings = <&kp SEMI>, <&kp JP_COLON>;
-
-            // 左右どちらかの Shift が押されていたらモーフ側（JP_COLON）を使う
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        // 追加：ホールドで layer4、タップで jis_SEMI
+        // ★ layer 4 に一時的に切り替える専用ビヘイビア
+        mo4: mo4 {
+            compatible = "zmk,behavior-momentary-layer";
+            label = "MO_4";
+            #binding-cells = <0>;
+            layer = <4>;
+        };
+
+        // ★ hold-tap: ホールドで layer4, タップで jis_SEMI
         lt4_jis_SEMI: lt4_jis_SEMI {
             compatible = "zmk,behavior-hold-tap";
             label = "LT4_JIS_SEMI";
             #binding-cells = <0>;
 
-            // お好みで
             tapping-term-ms = <200>;
-            flavor = "balanced"; // "hold-preferred" でも可
+            quick_tap_ms = <0>;
+            flavor = "tap-preferred";
 
-            // bindings = <ホールド時>, <タップ時>
-            bindings = <&mo 4 &jis_SEMI>;
+            // ← ここがポイント：ノード参照だけにする
+            bindings = <&mo4 &jis_SEMI>;
         };
     };
 
