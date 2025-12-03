@@ -45,6 +45,20 @@
             // 左右どちらかの Shift が押されていたらモーフ側（JP_COLON）を使う
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
+
+        // 追加：ホールドで layer4、タップで jis_SEMI
+        lt4_jis_SEMI: lt4_jis_SEMI {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LT4_JIS_SEMI";
+            #binding-cells = <0>;
+
+            // お好みで
+            tapping-term-ms = <200>;
+            flavor = "balanced"; // "hold-preferred" でも可
+
+            // bindings = <ホールド時>, <タップ時>
+            bindings = <&mo 4>, <&jis_SEMI>;
+        };
     };
 
     combos {
@@ -205,7 +219,7 @@
     default_layer {
         bindings = <
 &kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&kp A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt 4 jis_SEMI
+&kp A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &&lt4_jis_SEMI
 &lt 1 Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
 &kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
         >;
