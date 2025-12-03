@@ -215,7 +215,7 @@
     layer1 {
         label = "CONTROL"; 
         bindings = <
-&trans      &kill_prev_word  &kp END          &trans                &kp QUESTION          &trans           &kill_to_start        &trans              &kp JP_UNDERSCORE  &kp UP
+&move_prev_word     &kill_prev_word  &kp END          &move_next_word                &kp QUESTION          &trans           &kill_to_start        &trans              &kp JP_UNDERSCORE  &kp UP
 &kp HOME    &kp JP_AT           &kp DEL          &kp RIGHT             &kp EXCL              &kp BSPC         &kp ENTER             &kill_to_end        &kp MINUS          &kp JP_TILDE
 &trans      &kp SLASH        &kp JP_PIPE      &kp JP_YEN            &kp LEFT              &kp DOWN         &kp ENTER             &kp JP_DQUOTE       &kp JP_QUOTE       &kp JP_BACKQUOTE
 &trans      &trans           &kp JP_LPAREN    &kp JP_RPAREN         &kp JP_LBRACE         &kp JP_RBRACE    &kp JP_LBRACKET       &kp JP_RBRACKET     &trans             &trans
@@ -248,8 +248,8 @@
     layer4 {
         label = "ARROW";
         bindings = <
-&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &kp ime_fw_kata  &trans  &trans
-&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &kp ime_hw_kata  &kp ime_hira  &kp ime_kata  &kp ime_hw_alnum  &trans
+&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &ime_fw_kata  &trans  &trans
+&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_hw_kata  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
         >;
