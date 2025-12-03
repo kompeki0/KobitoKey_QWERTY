@@ -58,7 +58,7 @@
             flavor = "balanced"; // "hold-preferred" でも可
 
             // bindings = <ホールド時>, <タップ時>
-            bindings = <&mo 4>, <&jis_SEMI>;
+            bindings = <&mo 4 &jis_SEMI>;
         };
     };
 
