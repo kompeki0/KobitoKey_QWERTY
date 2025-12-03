@@ -262,7 +262,7 @@
     layer4 {
         label = "ARROW";
         bindings = <
-&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &ime_fw_kata  &trans  &trans
+&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &ime_hw_kata  &trans  &trans
 &kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_hw_kata  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
