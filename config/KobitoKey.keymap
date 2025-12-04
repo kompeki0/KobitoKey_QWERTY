@@ -35,7 +35,17 @@
 
 
 / {
-    
+
+    behaviors {
+      sl_mouse: sticky_layer_for_mouse {
+        compatible = "zmk,behavior-sticky-laye";
+        #binding-cells = <1>;
+        bindings = <&mo>;
+        release-after-ms = <200>;
+        quick-release;
+        ignore-modifiers;
+      };
+    };
 
     combos {
         compatible = "zmk,combos";
@@ -128,7 +138,7 @@
                 <&macro_press &mkp MB1>
                 , <&macro_pause_for_release> // ドラッグ対策に離すまで待つ
                 , <&macro_release &mkp MB1>
-                , <&macro_tap &sl 6> // ダブルクリック対策用のレイヤーに移動
+                , <&macro_tap &sl_mouse 6> // ダブルクリック対策用のレイヤーに移動
                 //, <&macro_wait_time 500>
                 //, <&macro_tap &to 0> // デフォルトレイヤーに戻る
                 ;
@@ -275,7 +285,7 @@
     /* ▼ レイヤー6：未使用（全部透過） */
     layer6 {
         bindings = <
-&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp N1        &kp I      &kp O      &kp P
+&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &mkp MB1       &kp I      &kp O      &kp P
 &lt 1 A      &mt LSHFT S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &mt RSHFT L      &lt 4 SPACE
 &lt 1 Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
 &kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
