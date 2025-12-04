@@ -38,7 +38,7 @@
 
     behaviors {
       sl_mouse: sticky_layer_for_mouse {
-        compatible = "zmk,behavior-sticky-laye";
+        compatible = "zmk,behavior-sticky-layer";
         #binding-cells = <1>;
         bindings = <&mo>;
         release-after-ms = <200>;
