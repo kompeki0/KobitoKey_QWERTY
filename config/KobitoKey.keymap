@@ -51,7 +51,7 @@
             bindings = <&kp LANG1>;
         };
 
-        combo_esc {
+        combo_esc {                 
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
@@ -272,9 +272,8 @@
 
     /* ▼ レイヤー6：未使用（全部透過） */
     layer6 {
-
         bindings = <
-&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &mkp MB1        &kp I      &kp O      &kp P
+&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp N1        &kp I      &kp O      &kp P
 &lt 1 A      &mt LSHFT S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &mt RSHFT L      &lt 4 SPACE
 &lt 1 Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
 &kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
