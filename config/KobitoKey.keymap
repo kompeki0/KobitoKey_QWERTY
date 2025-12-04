@@ -118,6 +118,9 @@
                 ;
         };
         click_and_exit: click_and_exit {
+            &sl {
+                release-after-ms = <500>;
+            };
             label = "CLICK_AND_EXIT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -126,9 +129,9 @@
                 <&macro_press &mkp MB1>
                 , <&macro_pause_for_release> // ドラッグ対策に離すまで待つ
                 , <&macro_release &mkp MB1>
-                , <&macro_tap &to 6> // ダブルクリック対策用のレイヤーに移動
-                , <&macro_wait_time 500>
-                , <&macro_tap &to 0> // デフォルトレイヤーに戻る
+                , <&macro_tap &sl 6> // ダブルクリック対策用のレイヤーに移動
+                //, <&macro_wait_time 500>
+                //, <&macro_tap &to 0> // デフォルトレイヤーに戻る
                 ;
         };
         ime_hira: ime_hira {
