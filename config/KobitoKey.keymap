@@ -116,6 +116,16 @@
                 , <&macro_tap &kp DEL>
                 ;
         };
+        click_and_exit: click_and_exit {
+            label = "CLICK_AND_EXIT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                // Ctrl + Shift を押しっぱなし
+                <&macro_tap &kp MB1>
+                , <&macro_tap &to 0>
+                ;
+        };
         ime_hira: ime_hira {
             label = "IME_HIRA";
             compatible = "zmk,behavior-macro";
