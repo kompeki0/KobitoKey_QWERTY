@@ -121,8 +121,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                // Ctrl + Shift を押しっぱなし
-                <&macro_tap &kp MB1>
+                <&macro_tap &mkp MB1>
                 , <&macro_tap &to 0>
                 ;
         };
