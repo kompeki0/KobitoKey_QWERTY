@@ -33,10 +33,11 @@
 #define JP_EISU         LANGUAGE_2        // 英数
 #define JP_HANZEN       GRAVE             // 半角/全角
 
-/ {
-    &sl {
+&sl {
         release-after-ms = <500>;
     };
+/ {
+    
 
     combos {
         compatible = "zmk,combos";
