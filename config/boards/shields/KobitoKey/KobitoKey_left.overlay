@@ -115,10 +115,10 @@
             <&zip_xy_scaler 1 5>;
     };
     ignore_automouse {
-        layers = <7>;
+        layers = <6>;
         input-processors =
         <&sensor_rotation_right>;
-    }
+    };
 
     change_layer {
         layers = <0>;
