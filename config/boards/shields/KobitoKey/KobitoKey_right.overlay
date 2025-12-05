@@ -48,7 +48,6 @@
     smaller_dpi {
         layers = <7>;
          input-processors =
-            <&sensor_rotation_right>,
             <&zip_xy_scaler 1 5>;
     };
 };
