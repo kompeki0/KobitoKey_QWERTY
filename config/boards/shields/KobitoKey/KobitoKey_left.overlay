@@ -76,7 +76,7 @@
             ;
     change_layer {
         layers = <0 1 2 3 4 5>;
-        input-provessors = 
+        input-processors = 
             <&zip_temp_layer 3 5000>; /* スクロールでもオートマウスレイヤに入るようにする */
     };
     
@@ -98,7 +98,7 @@
 
     change_layer {
         layers = <0 1 2 3 4 5>;
-        input-provessors = 
+        input-processors = 
             <&zip_temp_layer 3 5000>; 
     };
     smaller_dpi {
