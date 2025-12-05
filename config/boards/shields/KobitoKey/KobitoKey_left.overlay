@@ -92,8 +92,7 @@
 
 &tb_right_listener {
     status = "okay";
-    device = <&tb_right>;
-    
+
     input-processors =
         <&sensor_rotation_right>;
 
