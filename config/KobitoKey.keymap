@@ -153,23 +153,11 @@
             #binding-cells = <0>;
             bindings = <&macro_tap &kp F6>;
         };
-
-<<<<<<< HEAD
-        layer3 {
-            label = "MOUSE";
-            bindings = <
-&trans     &trans  &trans    &trans     &trans  &trans  &mkp MB1            &mkp MB3       &mkp MB2  &trans
-&trans     &trans  &trans    &trans     &trans  &trans  &trans              &trans         &trans    &trans
-&trans     &trans  &trans    &trans     &trans  &trans  &trans              &trans         &trans    &trans
-&kp LSHFT  &trans  &kp LCMD  &kp ENTER  &to 0   &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT)  &to 0     &kp RALT
-            >;
-=======
         ime_kata: ime_kata {
             label = "IME_KATA";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp F7>;
->>>>>>> dev
         };
 
         ime_hw_kata: ime_hw_kata {
