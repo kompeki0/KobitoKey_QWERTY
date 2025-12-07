@@ -3,8 +3,49 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/modifiers.h>
+#include <dt-bindings/zmk/behaviors.h>
+#include <dt-bindings/zmk/mouse.h>
+
+
+// OS設定を日本語キーボードのまま使用するための変換定義
+#define JP_DQUOTE       AT                // "
+#define JP_AMPERSAND    CARET             // &
+#define JP_QUOTE        AMPERSAND         // '
+#define JP_EQUAL        UNDER             // =
+#define JP_CARET        EQUAL             // ^
+#define JP_YEN          0x89              // ¥
+#define JP_PLUS         COLON             // +
+#define JP_TILDE        PLUS              // ~
+#define JP_PIPE         LS(0x89)          // |
+#define JP_AT           LEFT_BRACKET      // @
+#define JP_COLON        SINGLE_QUOTE      // :
+#define JP_ASTERISK     DOUBLE_QUOTES     // *
+#define JP_BACKQUOTE    LEFT_BRACE        // `
+#define JP_UNDERSCORE   LS(0x87)          // _
+#define JP_LBRACKET     RIGHT_BRACKET     // [
+#define JP_RBRACKET     BACKSLASH         // ]
+#define JP_LPAREN       ASTERISK          // (
+#define JP_RPAREN       LEFT_PARENTHESIS  // )
+#define JP_LBRACE       RIGHT_BRACE       // {
+#define JP_RBRACE       PIPE              // }
+#define JP_KANA         LANGUAGE_1        // かな
+#define JP_EISU         LANGUAGE_2        // 英数
+#define JP_HANZEN       GRAVE             // 半角/全角
+
 
 / {
+    behaviors {
+      sl_mouse: sticky_layer_for_mouse {
+        compatible = "zmk,behavior-sticky-key";
+        #binding-cells = <1>;
+        bindings = <&mo>;
+        release-after-ms = <200>;
+        quick-release;
+        ignore-modifiers;
+      };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -20,7 +61,7 @@
             bindings = <&kp LANG1>;
         };
 
-        combo_esc {
+        combo_esc {                 
             timeout-ms = <50>;
             key-positions = <0 1>;
             bindings = <&kp ESC>;
@@ -32,39 +73,88 @@
             bindings = <&kp TAB>;
         };
     };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        default_layer {
-            bindings = <
-&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&kp A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &kp SEMI
-&kp Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &kp DOT    &kp APOS
-&kp LSHFT  &kp LALT  &kp LCMD  &lt 2 SPACE  &kp LCTRL  &kp BSPC  &lt 1 ENTER  &kp RSHFT  &kp RSHFT  &mt LALT SLASH
-            >;
+    macros {
+        // Ctrl+K 相当：カーソル位置から行末まで削除
+        kill_to_end: kill_to_end {
+            label = "KILL_TO_END";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                // Shift を押しっぱなし
+                <&macro_press &kp LSHFT>
+                // End をタップ（カーソル～行末を選択）
+                , <&macro_tap &kp END>
+                // Shift を離す
+                , <&macro_release &kp LSHFT>
+                // Delete をタップ（選択範囲を削除）
+                , <&macro_tap &kp DEL>
+                ;
         };
 
-        layer1 {
-            label = "NUMBER";
-            bindings = <
-&kp N0     &kp N1  &kp N2  &kp N3     &trans  &kp MINUS  &trans     &kp UP    &trans     &trans
-&kp EQUAL  &kp N4  &kp N5  &kp N6     &trans  &kp PLUS   &kp LEFT   &kp DOWN  &kp RIGHT  &trans
-&trans     &kp N7  &kp N8  &kp N9     &trans  &kp ASTRK  &kp SLASH  &kp LBKT  &kp RBKT   &trans
-&trans     &trans  &trans  &kp LSHFT  &trans  &trans     &trans     &trans    &trans     &trans
-            >;
+        // Ctrl+U 相当：カーソル位置から行頭まで削除
+        kill_to_start: kill_to_start {
+            label = "KILL_TO_START";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                // Shift を押しっぱなし
+                <&macro_press &kp LSHFT>
+                // Home をタップ（行頭～カーソルまで選択）
+                , <&macro_tap &kp HOME>
+                // Shift を離す
+                , <&macro_release &kp LSHFT>
+                // Delete をタップ（選択範囲を削除）
+                , <&macro_tap &kp DEL>
+                ;
         };
 
-        layer2 {
-            label = "FUNCTION";
-            bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans        &trans        &trans        &trans        &bt BT_CLR      &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans          &kp DEL  &trans   &trans  &trans  &trans
-            >;
+        // Ctrl+W 相当：直前の1単語を削除
+        //   → Windows 的には Ctrl+Shift+← で単語選択 → Delete
+        kill_prev_word: kill_prev_word {
+            label = "KILL_PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                // Ctrl + Shift を押しっぱなし
+                <&macro_press &kp LCTRL>
+                , <&macro_press &kp LSHFT>
+                // ← をタップ（直前1語を選択）
+                , <&macro_tap &kp LEFT>
+                // Shift, Ctrl を離す
+                , <&macro_release &kp LSHFT>
+                , <&macro_release &kp LCTRL>
+                // Delete で選択範囲削除
+                , <&macro_tap &kp DEL>
+                ;
+        };
+        click_and_exit: click_and_exit {
+            label = "CLICK_AND_EXIT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mkp MB1>
+                , <&macro_pause_for_release> // ドラッグ対策に離すまで待つ
+                , <&macro_release &mkp MB1>
+                , <&macro_tap &to 0> // デフォルトレイヤーに戻る
+                ;
+        };
+        double_click: double_click {
+            label = "DOUBLE_CLICK";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &mkp MB1>
+                , <&macro_tap &mkp MB1>
+            ;
+        };
+        ime_hira: ime_hira {
+            label = "IME_HIRA";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F6>;
         };
 
+<<<<<<< HEAD
         layer3 {
             label = "MOUSE";
             bindings = <
@@ -73,15 +163,160 @@
 &trans     &trans  &trans    &trans     &trans  &trans  &trans              &trans         &trans    &trans
 &kp LSHFT  &trans  &kp LCMD  &kp ENTER  &to 0   &trans  &kp LA(LEFT_ARROW)  &kp LA(RIGHT)  &to 0     &kp RALT
             >;
+=======
+        ime_kata: ime_kata {
+            label = "IME_KATA";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F7>;
+>>>>>>> dev
         };
 
-        layer_4 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
+        ime_hw_kata: ime_hw_kata {
+            label = "IME_HW_KATA";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F8>;
         };
+
+        ime_fw_alnum: ime_fw_alnum {
+            label = "IME_FW_ALNUM";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F9>;
+        };
+
+        ime_hw_alnum: ime_hw_alnum {
+            label = "IME_HW_ALNUM";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F10>;
+        };
+
+        move_prev_word: move_prev_word {
+            label = "MOVE_PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>
+                , <&macro_tap &kp LEFT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+
+        move_next_word: move_next_word {
+            label = "MOVE_NEXT_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>
+                , <&macro_tap &kp RIGHT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+
+        select_prev_word: select_prev_word {
+            label = "SELECT_PREV_WORD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCTRL>
+                , <&macro_press &kp LSHFT>
+                , <&macro_tap   &kp LEFT>
+                , <&macro_release &kp LSHFT>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+    };
+    keymap {
+    compatible = "zmk,keymap";
+
+    /* ▼ レイヤー0：通常（英数） */
+    default_layer {
+        bindings = <
+&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
+&lt 1 A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &mt RSHFT L      &lt 4 LC(M)
+&lt 1 Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
+&kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
+        >;
+    };
+
+
+    /* ▼ レイヤー1：編集／記号（JIS記号に寄せた版） */
+    layer1 {
+        label = "CONTROL"; 
+        bindings = <
+&move_prev_word     &kill_prev_word  &kp END          &move_next_word                &kp QUESTION          &trans           &kill_to_start        &trans              &kp JP_UNDERSCORE  &kp UP
+&kp HOME    &kp JP_AT           &kp DEL          &kp RIGHT             &kp EXCL              &kp BSPC         &kp ENTER             &kill_to_end        &kp MINUS          &kp JP_TILDE
+&trans      &kp SLASH        &kp JP_PIPE      &kp JP_YEN            &kp LEFT              &kp DOWN         &kp ENTER             &kp JP_DQUOTE       &kp JP_QUOTE       &kp JP_BACKQUOTE
+&trans      &trans           &kp JP_LPAREN    &kp JP_RPAREN         &kp JP_LBRACE         &kp JP_RBRACE    &kp JP_LBRACKET       &kp JP_RBRACKET     &trans             &trans
+        >;
+    };
+
+    /* ▼ レイヤー2：数字／記号（JIS記号を意識） */
+    layer2 {
+        label = "NUMBER";
+        bindings = <
+&trans   &kp N1           &kp N2           &kp N3            &kp DOLLAR       &kp LT            &kp EXCL           &kp QUESTION        &kp JP_CARET      &trans
+&trans   &kp N4           &kp N5           &kp N6            &kp JP_COLON           &kp JP_EQUAL      &kp JP_PLUS        &kp MINUS           &kp JP_ASTERISK   &kp SLASH
+&trans   &kp N7           &kp N8           &kp N9            &kp SEMICOLON           &kp GT            &kp JP_AMPERSAND   &kp JP_PIPE         &kp PERCENT       &kp JP_YEN
+&trans   &trans           &kp N0           &kp HASH          &trans           &trans            &trans             &trans              &trans            &trans
+        >;
+    };
+
+    /* ▼ レイヤー3：マウス（修飾キー名をZMK準拠に修正） */
+    layer3 {
+        label = "MOUSE";
+        bindings = <
+&kp LALT     &kp LG(TAB)  &kp LG(E)        &kp LG(D)          &mo 7 &double_click    &click_and_exit       &mkp MB3       &mkp MB2       &kp RALT
+&kp LSHFT    &trans       &trans           &kp LS(LG(S))      &trans  &trans       &kp C_AC_BACK  &kp C_AC_REFRESH  &kp C_AC_FORWARD  &to 0
+&trans       &trans       &trans           &trans             &trans  &trans       &trans         &trans         &trans         &trans
+&kp LSHFT    &trans       &to 0         &to 0            &to 0   &kp LSHFT       &kp  LCTRL         &kp RALT         &to 0          &kp RALT
+        >;
+    };
+
+    /* ▼ レイヤー4：矢印 */
+    layer4 {
+        label = "ARROW";
+        bindings = <
+&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &ime_hw_kata  &trans  &trans
+&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_hw_kata  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
+&trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
+        >;
+    };
+
+    /* ▼ レイヤー5：ファンクション・BT・レイヤー移動 */
+    layer5 {
+        label = "FUNCTION";
+        bindings = <
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
+&to 0        &to 6        &trans        &trans        &bt BT_CLR      &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
+&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &trans          &kp DEL  &trans   &trans  &trans  &trans
+        >;
+    };
+
+    /* ▼ レイヤー6：VRC用*/
+    layer6 {
+        label = "VRC";
+        bindings = <
+&kp Q      &kp W     &kp W     &kp R        &kp E      &kp Y     &mkp MB1       &mkp MB3      &mkp MB2   &kp P
+&kp LSHFT     &kp A     &kp S     &kp D        &kp G      &kp V     &kp LS(F1)        &kp LS(F2)      &kp LS(F3)      &kp LS(F4)
+&lt 1 Z      &mt LSHFT X     &kp C     &kp Z      &kp B      &kp N       &kp LS(F5)        &kp LS(F6)      &kp LS(F7)      &kp LS(F8)
+&kp LSHFT  &kp LALT  &kp SPACE  &mo 0     &kp RCMD   &kp ESC  &kp R   &kp V &kp END  &to 0
+        >;
+    };
+
+    /* ▼ レイヤー7：マウス低DPI修飾キー名をZMK準拠に修正） */
+    layer7 {
+        label = "MOUSE2";
+        bindings = <
+&kp LALT     &kp LG(TAB)  &kp LG(E)        &kp LG(D)          &trans  &double_click    &click_and_exit       &mkp MB3       &mkp MB2       &kp RALT
+&kp LSHFT    &trans       &trans           &kp LS(LG(S))      &trans  &trans       &kp C_AC_BACK  &kp C_AC_REFRESH  &kp C_AC_FORWARD  &to 0
+&trans       &trans       &trans           &trans             &trans  &trans       &trans         &trans         &trans         &trans
+&kp LSHFT    &trans       &to 0         &to 0            &to 0   &kp LSHFT       &kp  LCTRL         &kp RALT         &to 0          &kp RALT
+        >;
+    };
     };
 };
