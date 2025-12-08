@@ -75,7 +75,7 @@
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>
             ;
     ignore_automouse {
-        layers = <6 7>;
+        layers = <6 7 9>;
         input-processors = 
             <&sensor_rotation_left>,
             <&zip_x_scaler 1 15>,
@@ -119,7 +119,16 @@
         input-processors =
         <&sensor_rotation_right>;
     };
-
+    right_tb_for_scroll {
+        layers = <9>;
+        input-processors =
+        <&sensor_rotation_right>,
+            <&zip_x_scaler 1 15>,
+            <&zip_y_scaler 1 15>,
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>;
+    }
     change_layer {
         layers = <0>;
         input-processors = 

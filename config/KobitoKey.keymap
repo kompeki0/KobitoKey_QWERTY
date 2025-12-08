@@ -281,7 +281,7 @@
     layer3 {
         label = "MOUSE";
         bindings = <
-&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &mo 7    &double_click   &click_and_exit2     &mkp MB3            &mkp MB2            &kp RALT
+&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &mo 7    &mo 9   &click_and_exit2     &mkp MB3            &mkp MB2            &kp RALT
 &kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &trans          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to 0
 &trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
 &kp LSHFT    &trans       &to 0             &to 0              &to 0    &kp LSHFT       &kp  LCTRL          &kp RALT            &to 0               &kp RALT
@@ -325,14 +325,14 @@
     layer7 {
         label = "MOUSE2";
         bindings = <
-&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &double_click   &click_and_exit     &mkp MB3            &mkp MB2            &kp RALT
+&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &mo 9           &click_and_exit2    &mkp MB3            &mkp MB2            &kp RALT
 &kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &trans          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to 0
 &trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
 &kp LSHFT    &trans       &to 0             &to 0              &to 0    &kp LSHFT       &kp  LCTRL          &kp RALT            &to 0               &kp RALT
         >;
     };
 
-    /* ▼ レイヤー7：マウス低DPI */
+    /* ▼ レイヤー8：ダブルクリック用レイヤー */
     layer8 {
         label = "MOUSE3";
         bindings = <
@@ -340,6 +340,16 @@
 &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
 &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
 &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+        >;
+    };
+    /* ▼ レイヤー9：右手スクロール用レイヤー*/
+    layer8 {
+        label = "MOUSE4";
+        bindings = <
+&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &trans          &click_and_exit2    &mkp MB3            &mkp MB2            &kp RALT
+&kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &trans          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to 0
+&trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
+&kp LSHFT    &trans       &to 0             &to 0              &to 0    &kp LSHFT       &kp  LCTRL          &kp RALT            &to 0               &kp RALT
         >;
     };
     };
