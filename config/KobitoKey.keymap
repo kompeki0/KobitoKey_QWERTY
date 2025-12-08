@@ -72,6 +72,19 @@
             key-positions = <10 11>;
             bindings = <&kp TAB>;
         };
+
+        combo_eisu2  {
+            timeout-ms = <50>;
+            key-positions = <32 33>;
+            bindings = <&kp LANG2>;
+        };
+
+        combo_kana2 {
+            timeout-ms = <50>;
+            key-positions = <36 37>;
+            bindings = <&kp LANG1>;
+        };
+
     };
     macros {
         // Ctrl+K 相当：カーソル位置から行末まで削除
@@ -136,6 +149,18 @@
                 , <&macro_pause_for_release> // ドラッグ対策に離すまで待つ
                 , <&macro_release &mkp MB1>
                 , <&macro_tap &to 0> // デフォルトレイヤーに戻る
+                ;
+        };
+        click_and_exit2: click_and_exit2 {
+            label = "CLICK_AND_EXIT2";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &mkp MB1>
+                , <&macro_pause_for_release> // ドラッグ対策に離すまで待つ
+                , <&macro_release &mkp MB1>
+                , <&macro_tap &to 0> // デフォルトレイヤーに戻る
+                , <&macro_press &sl_mouse 8>
                 ;
         };
         double_click: double_click {
@@ -256,10 +281,10 @@
     layer3 {
         label = "MOUSE";
         bindings = <
-&kp LALT     &kp LG(TAB)  &kp LG(E)        &kp LG(D)          &mo 7 &double_click    &click_and_exit       &mkp MB3       &mkp MB2       &kp RALT
-&kp LSHFT    &trans       &trans           &kp LS(LG(S))      &trans  &trans       &kp C_AC_BACK  &kp C_AC_REFRESH  &kp C_AC_FORWARD  &to 0
-&trans       &trans       &trans           &trans             &trans  &trans       &trans         &trans         &trans         &trans
-&kp LSHFT    &trans       &to 0         &to 0            &to 0   &kp LSHFT       &kp  LCTRL         &kp RALT         &to 0          &kp RALT
+&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &mo 7    &double_click   &click_and_exit2     &mkp MB3            &mkp MB2            &kp RALT
+&kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &trans          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to 0
+&trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
+&kp LSHFT    &trans       &to 0             &to 0              &to 0    &kp LSHFT       &kp  LCTRL          &kp RALT            &to 0               &kp RALT
         >;
     };
 
@@ -296,14 +321,25 @@
         >;
     };
 
-    /* ▼ レイヤー7：マウス低DPI修飾キー名をZMK準拠に修正） */
+    /* ▼ レイヤー7：マウス低DPI */
     layer7 {
         label = "MOUSE2";
         bindings = <
-&kp LALT     &kp LG(TAB)  &kp LG(E)        &kp LG(D)          &trans  &double_click    &click_and_exit       &mkp MB3       &mkp MB2       &kp RALT
-&kp LSHFT    &trans       &trans           &kp LS(LG(S))      &trans  &trans       &kp C_AC_BACK  &kp C_AC_REFRESH  &kp C_AC_FORWARD  &to 0
-&trans       &trans       &trans           &trans             &trans  &trans       &trans         &trans         &trans         &trans
-&kp LSHFT    &trans       &to 0         &to 0            &to 0   &kp LSHFT       &kp  LCTRL         &kp RALT         &to 0          &kp RALT
+&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &double_click   &click_and_exit     &mkp MB3            &mkp MB2            &kp RALT
+&kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &trans          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to 0
+&trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
+&kp LSHFT    &trans       &to 0             &to 0              &to 0    &kp LSHFT       &kp  LCTRL          &kp RALT            &to 0               &kp RALT
+        >;
+    };
+
+    /* ▼ レイヤー7：マウス低DPI */
+    layer8 {
+        label = "MOUSE3";
+        bindings = <
+&trans       &trans       &trans       &trans       &trans       &trans       &click_and_exit2       &trans       &trans       &trans       
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
         >;
     };
     };
