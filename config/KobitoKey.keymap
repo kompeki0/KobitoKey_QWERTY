@@ -271,8 +271,8 @@
         label = "NUMBER";
         bindings = <
 &trans   &kp N1           &kp N2           &kp N3            &kp DOLLAR       &kp LT            &kp EXCL           &kp QUESTION        &kp JP_CARET      &trans
-&trans   &kp N4           &kp N5           &kp N6            &kp JP_COLON           &kp JP_EQUAL      &kp JP_PLUS        &kp MINUS           &kp JP_ASTERISK   &kp SLASH
-&trans   &kp N7           &kp N8           &kp N9            &kp SEMICOLON           &kp GT            &kp JP_AMPERSAND   &kp JP_PIPE         &kp PERCENT       &kp JP_YEN
+&kp DOT   &kp N4           &kp N5           &kp N6            &kp JP_COLON           &kp JP_EQUAL      &kp JP_PLUS        &kp MINUS           &kp JP_ASTERISK   &kp SLASH
+&kp COMMA   &kp N7           &kp N8           &kp N9            &kp SEMICOLON           &kp GT            &kp JP_AMPERSAND   &kp JP_PIPE         &kp PERCENT       &kp JP_YEN
 &trans   &trans           &kp N0           &kp HASH          &trans           &trans            &trans             &trans              &trans            &trans
         >;
     };
@@ -343,7 +343,7 @@
         >;
     };
     /* ▼ レイヤー9：右手スクロール用レイヤー*/
-    layer8 {
+    layer9 {
         label = "MOUSE4";
         bindings = <
 &kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &trans          &click_and_exit2    &mkp MB3            &mkp MB2            &kp RALT
