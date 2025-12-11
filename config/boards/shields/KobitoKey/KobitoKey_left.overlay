@@ -69,6 +69,7 @@
 
     input-processors =
             <&sensor_rotation_left>,
+            <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -79,6 +80,7 @@
         layers = <6 7 9>;
         input-processors = 
             <&sensor_rotation_left>,
+            <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -89,6 +91,7 @@
         layers = <0>;
         input-processors = 
             <&sensor_rotation_left>,
+            <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -113,17 +116,20 @@
         layers = <7>;
         input-processors =
         <&sensor_rotation_right>,
-            <&zip_xy_scaler 1 5>;
+        <&zip_xy_swap_mapper>,
+        <&zip_xy_scaler 1 5>;
     };
     ignore_automouse {
         layers = <6>;
         input-processors =
-        <&sensor_rotation_right>;
+        <&sensor_rotation_right>,
+        <&zip_xy_swap_mapper>;
     };
     right_tb_for_scroll {
         layers = <9>;
         input-processors =
         <&sensor_rotation_right>,
+        <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -134,6 +140,7 @@
         layers = <0>;
         input-processors = 
             <&sensor_rotation_right>,
+            <&zip_xy_swap_mapper>,
             <&zip_xy_scaler 1 1>,
             <&zip_temp_layer 3 5000>; 
     };
