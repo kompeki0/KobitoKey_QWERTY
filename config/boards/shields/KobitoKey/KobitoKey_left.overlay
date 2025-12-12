@@ -36,13 +36,13 @@
         compatible = "pixart,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        res-cpi = <200>; /* センサー感度 */
+        irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        cpi = <200>; /* センサー感度 */
 
 
-        zephyr,axis-x = <INPUT_REL_X>;
-        zephyr,axis-y = <INPUT_REL_Y>;
-        smart-mode;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
     };
 };
 
@@ -68,7 +68,6 @@
 
     input-processors =
             <&sensor_rotation_left>,
-            <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -79,7 +78,6 @@
         layers = <6 7 9>;
         input-processors = 
             <&sensor_rotation_left>,
-            <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -90,7 +88,6 @@
         layers = <0>;
         input-processors = 
             <&sensor_rotation_left>,
-            <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -115,20 +112,17 @@
         layers = <7>;
         input-processors =
         <&sensor_rotation_right>,
-        <&zip_xy_swap_mapper>,
-        <&zip_xy_scaler 1 5>;
+            <&zip_xy_scaler 1 5>;
     };
     ignore_automouse {
         layers = <6>;
         input-processors =
-        <&sensor_rotation_right>,
-        <&zip_xy_swap_mapper>;
+        <&sensor_rotation_right>;
     };
     right_tb_for_scroll {
         layers = <9>;
         input-processors =
         <&sensor_rotation_right>,
-        <&zip_xy_swap_mapper>,
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
@@ -139,7 +133,6 @@
         layers = <0>;
         input-processors = 
             <&sensor_rotation_right>,
-            <&zip_xy_swap_mapper>,
             <&zip_xy_scaler 1 1>,
             <&zip_temp_layer 3 5000>; 
     };

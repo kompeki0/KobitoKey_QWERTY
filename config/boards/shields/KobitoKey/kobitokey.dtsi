@@ -2,10 +2,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include "KobitoKey-layouts.dtsi"
 
-
-&uicr {
-    nfct-pins-as-gpios;
-};
 / {
     /* 行列スキャン：rowは左右共通、colは左右で分ける */
     kscan0: kscan0 {
