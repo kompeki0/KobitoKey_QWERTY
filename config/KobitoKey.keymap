@@ -36,14 +36,20 @@
 
 / {
     behaviors {
-      sl_mouse: sticky_layer_for_mouse {
-        compatible = "zmk,behavior-sticky-key";
-        #binding-cells = <1>;
-        bindings = <&mo>;
-        release-after-ms = <200>;
-        quick-release;
-        ignore-modifiers;
-      };
+        sl_mouse: sticky_layer_for_mouse {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&mo>;
+            release-after-ms = <200>;
+            quick-release;
+            ignore-modifiers;
+        };
+        td_colon: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RSHFT>, <&kp SEMICOLON>, <&kp JP_COLON>;
+        };
     };
 
     combos {
@@ -86,6 +92,7 @@
         };
 
     };
+
     macros {
         // Ctrl+K 相当：カーソル位置から行末まで削除
         kill_to_end: kill_to_end {
