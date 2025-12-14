@@ -256,7 +256,7 @@
         bindings = <
 &kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
 &lt 1 A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &mt RSHFT L      &lt 4 LC(M)
-&lt 1 Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &td_colon
+&mt LSHFT Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &td_colon
 &kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
         >;
     };
