@@ -50,6 +50,12 @@
             tapping-term-ms = <200>;
             bindings = <&kp RSHFT>, <&kp SEMICOLON>, <&kp JP_COLON>;
         };
+        gresc: colon_semi {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SEMICOLON>, <&kp JP_COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -78,6 +84,12 @@
             key-positions = <10 11>;
             bindings = <&kp TAB>;
         };
+
+        combo_colon_semi {
+            timeout-ms = <50>;
+            key-positions = <18 19>;
+            bindings = <&colon_semi>;
+        }
 
         combo_eisu2  {
             timeout-ms = <50>;
@@ -255,8 +267,8 @@
     default_layer {
         bindings = <
 &kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&lt 1 A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &mt RSHFT L      &lt 4 LC(M)
-&mt LSHFT Z      &mt LSHFT X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &td_colon
+&lt 1 A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt 4 LC(M)
+&mt LSHFT Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
 &kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
         >;
     };
