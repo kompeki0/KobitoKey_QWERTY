@@ -50,7 +50,7 @@
             tapping-term-ms = <200>;
             bindings = <&kp RSHFT>, <&kp SEMICOLON>, <&kp JP_COLON>;
         };
-        gresc: colon_semi {
+        colon_semi: colon_semi {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp SEMICOLON>, <&kp JP_COLON>;
