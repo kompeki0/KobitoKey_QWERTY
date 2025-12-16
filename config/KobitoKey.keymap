@@ -61,29 +61,37 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_eisu {
+        combo_lparen {
             timeout-ms = <50>;
             key-positions = <12 13>;
-            bindings = <&kp LANG2>;
+            bindings = <&kp JP_LPAREN>;
         };
-
-        combo_kana {
+        combo_rparen {
             timeout-ms = <50>;
             key-positions = <16 17>;
-            bindings = <&kp LANG1>;
+            bindings = <&kp JP_RPAREN>;
+        };
+        combo_lbrace {
+            timeout-ms = <50>;
+            key-positions = <2 3>;
+            bindings = <&kp JP_LBRACE>;
+        };
+        combo_rbrace {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp JP_RBRACE>;
+        };
+        combo_lbracket {
+            timeout-ms = <50>;
+            key-positions = <22 23>;
+            bindings = <&kp JP_LBRACKET>;
+        };
+        combo_rbracket {
+            timeout-ms = <50>;
+            key-positions = <26 27>;
+            bindings = <&kp JP_RBRACKET>;
         };
 
-        combo_esc {                 
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-        };
-
-        combo_tab {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
-            bindings = <&kp TAB>;
-        };
 
         combo_colon_semi {
             timeout-ms = <50>;
@@ -182,15 +190,6 @@
                 , <&macro_tap &sl_mouse 8>
                 ;
         };
-        double_click: double_click {
-            label = "DOUBLE_CLICK";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_tap &mkp MB1>
-                , <&macro_tap &mkp MB1>
-            ;
-        };
         ime_hira: ime_hira {
             label = "IME_HIRA";
             compatible = "zmk,behavior-macro";
@@ -281,7 +280,7 @@
 &move_prev_word     &kill_prev_word  &kp END          &move_next_word                &kp QUESTION          &trans           &kill_to_start        &trans              &kp JP_UNDERSCORE  &kp UP
 &trans    &kp HOME           &kp DEL          &kp RIGHT             &kp EXCL              &kp BSPC         &kp ENTER             &kill_to_end        &kp MINUS          &kp JP_TILDE
 &trans      &kp SLASH        &kp JP_PIPE      &kp JP_YEN            &kp LEFT              &kp DOWN         &kp ENTER             &kp JP_DQUOTE       &kp JP_QUOTE       &kp JP_BACKQUOTE
-&trans      &trans           &kp JP_LPAREN    &kp JP_RPAREN         &kp JP_LBRACE         &kp JP_RBRACE    &kp JP_LBRACKET       &kp JP_RBRACKET     &trans             &trans
+&trans      &trans           &kp LC(X)   &kp LC(C)        &kp LC(V)         &kp LC(Z)    &kp LC(Y)       &kp LC(LS(Z))     &trans             &trans
         >;
     };
 
@@ -312,7 +311,7 @@
         label = "ARROW";
         bindings = <
 &trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &ime_hw_kata  &trans  &trans
-&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_hw_kata  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
+&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_fw_alnum  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
         >;
@@ -371,5 +370,18 @@
 &kp LSHFT    &trans       &trans            &kp LALT           &kp LSHFT    &kp LSHFT       &kp  LCTRL          &kp RALT            &to 0               &kp RALT
         >;
     };
+
+    /* ▼ レイヤー10：FPS用*/
+    layer9 {
+        label = "FPS";
+        bindings = <
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
+        >;
     };
+    };
+
+
 };
