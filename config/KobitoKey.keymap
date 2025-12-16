@@ -333,9 +333,9 @@
         label = "VRC";
         bindings = <
 &kp Q      &kp W     &kp W     &kp R        &kp E      &kp Y     &mkp MB1       &mkp MB3      &mkp MB2   &kp P
-&kp LSHFT     &kp A     &kp S     &kp D        &kp G      &kp V     &kp LS(F1)        &kp LS(F2)      &kp LS(F3)      &kp LS(F4)
-&lt 1 Z      &mt LSHFT X     &kp C     &kp Z      &kp B      &kp N       &kp LS(F5)        &kp LS(F6)      &kp LS(F7)      &kp LS(F8)
-&kp LSHFT  &kp LALT  &kp SPACE  &mo 0     &kp RCMD   &kp ESC  &kp R   &kp V &kp END  &to 0
+&kp LSHFT     &kp A     &kp S     &kp D z       &kp G      &kp V     &kp LS(F1)        &kp LS(F2)      &kp LS(F3)      &kp LS(F4)
+&kp TAB      &mt LSHFT X     &kp C     &kp Z      &kp B      &kp N       &kp LS(F5)        &kp LS(F6)      &kp LS(F7)      &kp LS(F8)
+&kp TAB  &kp LALT  &kp SPACE  &mo 0     &kp RCMD   &kp ESC  &kp R   &kp V &kp END  &to 0
         >;
     };
 
