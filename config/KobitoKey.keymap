@@ -372,7 +372,7 @@
     };
 
     /* ▼ レイヤー10：FPS用*/
-    layer9 {
+    layer10 {
         label = "FPS";
         bindings = <
 &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
