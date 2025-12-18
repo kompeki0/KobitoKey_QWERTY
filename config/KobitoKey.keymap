@@ -278,7 +278,7 @@
         label = "CONTROL"; 
         bindings = <
 &move_prev_word     &kill_prev_word  &kp END          &move_next_word                &kp QUESTION          &trans           &kill_to_start        &trans              &kp JP_UNDERSCORE  &kp UP
-&trans    &kp HOME           &kp DEL          &kp RIGHT             &kp EXCL              &kp BSPC         &kp ENTER             &kill_to_end        &kp MINUS          &kp JP_TILDE
+&trans    &trans           &kp DEL          &kp RIGHT             &kp EXCL              &kp BSPC         &kp ENTER             &kill_to_end        &kp MINUS          &kp JP_TILDE
 &trans      &kp SLASH        &kp JP_PIPE      &kp JP_YEN            &kp LEFT              &kp DOWN         &kp ENTER             &kp JP_DQUOTE       &kp JP_QUOTE       &kp JP_BACKQUOTE
 &trans      &trans           &kp LC(X)   &kp LC(C)        &kp LC(V)         &kp LC(Z)    &kp LC(Y)       &kp LC(LS(Z))     &trans             &trans
         >;
