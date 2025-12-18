@@ -268,7 +268,7 @@
 &kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
 &lt 1 A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt 4 LC(M)
 &mt LSHFT Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
-&kp LSHFT  &kp LALT  &kp LCTRL  &lt 5 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
+&mo 5  &kp LALT  &kp LCTRL  &lt 2 TAB     &kp RCMD   &kp BSPC  &lt 2 SPACE   &kp ENTER  &kp RCTRL  &kp ESC
         >;
     };
 
@@ -310,7 +310,7 @@
     layer4 {
         label = "ARROW";
         bindings = <
-&trans  &trans      &kp UP     &trans  &trans  &trans  &trans  &ime_hw_kata  &trans  &trans
+&trans  &move_prev_word     &kp UP     &move_next_word  &trans  &trans  &trans  &ime_hw_kata  &trans  &trans
 &kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_fw_alnum  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
