@@ -9,12 +9,12 @@
     spi0_default_r: spi0_default_r { group1 {
         psels = <NRF_PSEL(SPIM_SCK,  0, 5)>,
                 <NRF_PSEL(SPIM_MOSI, 0, 4)>,
-                <NRF_PSEL(SPIM_MISO, 0, 3)>;
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
     }; };
     spi0_sleep_r: spi0_sleep_r { group1 {
         psels = <NRF_PSEL(SPIM_SCK,  0, 5)>,
                 <NRF_PSEL(SPIM_MOSI, 0, 4)>,
-                <NRF_PSEL(SPIM_MISO, 0, 3)>;
+                <NRF_PSEL(SPIM_MISO, 0, 4)>;
         low-power-enable;
     }; };
 };
