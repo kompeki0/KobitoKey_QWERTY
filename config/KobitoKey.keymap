@@ -50,13 +50,13 @@
 
 
 / {
-    &mt {
-        tapping-term-ms = <400>;
-    };
-    &lt {
-        tapping-term-ms = <400>;
-    };
     behaviors {
+        &mt {
+            tapping-term-ms = <400>;
+            };
+        &lt {
+            tapping-term-ms = <400>;
+        };
         sl_mouse: sticky_layer_for_mouse {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
