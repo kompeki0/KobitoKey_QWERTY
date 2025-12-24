@@ -50,12 +50,6 @@
 
 
 / {
-    &mt {
-        tapping-term-ms = <400>;
-    };
-    &lt {
-        tapping-term-ms = <400>;
-    };
     behaviors {
         sl_mouse: sticky_layer_for_mouse {
             compatible = "zmk,behavior-sticky-key";
@@ -76,6 +70,20 @@
             #binding-cells = <0>;
             bindings = <&kp SEMICOLON>, <&kp JP_COLON>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        long_mt: long_mt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
+        long_lt: long_lt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;
         };
     };
 
@@ -287,8 +295,8 @@
     default_layer {
         bindings = <
 &kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&lt CONTROL A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt ARROW LC(M)
-&mt LSHFT Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
+&long_lt CONTROL A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt ARROW LC(M)
+&long_mt LSHFT Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
 &mo FUNCTION  &kp LALT  &kp LCTRL  &lt NUMBER  TAB     &kp RCMD   &kp BSPC  &lt NUMBER SPACE   &kp ENTER  &kp RCTRL  &kp ESC
         >;
     };
