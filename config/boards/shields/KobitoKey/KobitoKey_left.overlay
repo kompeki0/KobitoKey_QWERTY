@@ -80,7 +80,7 @@
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
     };
     change_layer {
         layers = <0>;
@@ -89,7 +89,7 @@
             <&zip_x_scaler 1 15>,
             <&zip_y_scaler 1 15>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>
+            <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>,
             <&zip_temp_layer 3 5000>; /* スクロールでもオートマウスレイヤに入るようにする */
     };
     };
