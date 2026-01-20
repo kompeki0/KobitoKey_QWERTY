@@ -330,7 +330,7 @@
 &kp LALT     &kp LG(TAB)  &trans         &kp LG(D)          &mo MOUSE2    &mo MOUSE4   &click_and_exit2     &mkp MB3            &mkp MB2            &kp RALT
 &kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &mkp MB1          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to DEFAULT_WIN
 &trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
-&kp LSHFT    &trans       &trans            &kp LALT           &kp LSHFT    &kp LSHFT       &kp  LCTRL          &kp RALT            &to DEFAULT_WIN               &kp RALT
+&kp LSHFT    &trans       &trans            &kp LALT           &kp LSHFT    &kp LSHFT       &trans        &trans            &to DEFAULT_WIN               &kp RALT
         >;
     };
 
