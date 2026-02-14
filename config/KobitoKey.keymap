@@ -86,30 +86,245 @@
             bindings = <&mo>, <&kp>;
         };
 
-        vset_mode1: value_set_mode1 {
+        vset_os_win: value_set_os_win {
             compatible = "zmk,behavior-value-set";
             #binding-cells = <0>;
-            index = <1>;
-            value = <1>;
+            index = <0>;
+            value = <0>;
         };
 
-        vset_mode2: value_set_mode2 {
+        vset_os_mac: value_set_os_mac {
             compatible = "zmk,behavior-value-set";
             #binding-cells = <0>;
-            index = <1>;
+            index = <0>;
             value = <2>;
         };
 
-        vsw_demo: value_switch_demo {
+        vset_os_ipad: value_set_os_ipad {
+            compatible = "zmk,behavior-value-set";
+            #binding-cells = <0>;
+            index = <0>;
+            value = <3>;
+        };
+
+        os_cut: os_cut {
             compatible = "zmk,behavior-value-switch";
             #binding-cells = <0>;
-            index = <1>;
+            index = <0>;
             fallback = <0>;
-            case-values = <1 2>;
+            case-values = <2 3>;
             bindings = <
-            &kp A
-            &kp B
-            &kp C
+            &kp LG(X)
+            &kp LG(X)
+            &kp LC(X)
+            >;
+        };
+
+        os_copy: os_copy {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LG(C)
+            &kp LG(C)
+            &kp LC(C)
+            >;
+        };
+
+        os_paste: os_paste {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LG(V)
+            &kp LG(V)
+            &kp LC(V)
+            >;
+        };
+
+        os_undo: os_undo {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LG(Z)
+            &kp LG(Z)
+            &kp LC(Z)
+            >;
+        };
+
+        os_redo: os_redo {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LS(LG(Z))
+            &kp LS(LG(Z))
+            &kp LC(Y)
+            >;
+        };
+
+        os_move_prev_word: os_move_prev_word {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LA(LEFT)
+            &kp LA(LEFT)
+            &kp LC(LEFT)
+            >;
+        };
+
+        os_move_next_word: os_move_next_word {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LA(RIGHT)
+            &kp LA(RIGHT)
+            &kp LC(RIGHT)
+            >;
+        };
+
+        os_kill_prev_word: os_kill_prev_word {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LA(BSPC)
+            &kp LA(BSPC)
+            &kp LC(BSPC)
+            >;
+        };
+
+        os_task_view: os_task_view {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LC(UP)
+            &kp LG(TAB)
+            &kp LG(TAB)
+            >;
+        };
+
+        os_lctrl_key: os_lctrl_key {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LGUI
+            &kp LGUI
+            &kp LCTRL
+            >;
+        };
+
+        os_rctrl_key: os_rctrl_key {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp RGUI
+            &kp RGUI
+            &kp RCTRL
+            >;
+        };
+
+        os_lcmd_key: os_lcmd_key {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LCTRL
+            &kp LCTRL
+            &kp LGUI
+            >;
+        };
+
+        os_rcmd_key: os_rcmd_key {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp RCTRL
+            &kp RCTRL
+            &kp RGUI
+            >;
+        };
+
+        os_show_desktop: os_show_desktop {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LG(F3)
+            &kp LG(H)
+            &kp LG(D)
+            >;
+        };
+
+        os_open_launcher: os_open_launcher {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LG(SPACE)
+            &kp LG(SPACE)
+            &kp LG(E)
+            >;
+        };
+
+        os_screenshot: os_screenshot {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &kp LS(LG(N4))
+            &kp LS(LG(N3))
+            &kp LS(LG(S))
+            >;
+        };
+
+        os_dot_modtap: os_dot_modtap {
+            compatible = "zmk,behavior-value-switch";
+            #binding-cells = <0>;
+            index = <0>;
+            fallback = <0>;
+            case-values = <2 3>;
+            bindings = <
+            &mt LGUI DOT
+            &mt LGUI DOT
+            &mt LCTRL DOT
             >;
         };
     };
@@ -360,129 +575,165 @@
                 , <&macro_tap &kp W>
                 ;
         };
+        bt_sel0_win: bt_sel0_win {
+            label = "BT_SEL0_WIN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &bt BT_SEL 0>
+                , <&macro_tap &vset_os_win>
+                ;
+        };
+        bt_sel1_win: bt_sel1_win {
+            label = "BT_SEL1_WIN";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &bt BT_SEL 1>
+                , <&macro_tap &vset_os_win>
+                ;
+        };
+        bt_sel2_mac: bt_sel2_mac {
+            label = "BT_SEL2_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &bt BT_SEL 2>
+                , <&macro_tap &vset_os_mac>
+                ;
+        };
+        bt_sel3_ipad: bt_sel3_ipad {
+            label = "BT_SEL3_IPAD";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_tap &bt BT_SEL 3>
+                , <&macro_tap &vset_os_ipad>
+                ;
+        };
     };
     keymap {
-    compatible = "zmk,keymap";
+        compatible = "zmk,keymap";
 
-    /* ▼ レイヤー0：通常（英数） */
-    default_layer {
-        bindings = <
-&vset_mode1      &vset_mode2     &vsw_demo     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&lt CONTROL A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &lt ARROW SPACE
-&long_mt LSHFT Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &mt LCTRL DOT    &kp RSHFT
-&mo FUNCTION  &kp LALT  &kp LCTRL  &lt NUMBER  TAB     &kp RCMD   &kp BSPC  &lt NUMBER SPACE   &kp ENTER  &kp RCTRL  &kp ESC
-        >;
-    };
+        /* ▼ レイヤー0：通常（英数） */
+        default_layer {
+            bindings = <
+                &kp Q            &kp W            &kp E            &kp R            &kp T            &kp Y            &kp U              &kp I              &kp O              &kp P
+                &lt CONTROL A     &kp S            &kp D            &kp F            &kp G            &kp H            &kp J              &kp K              &kp L              &lt ARROW SPACE
+                &long_mt LSHFT Z &kp X            &kp C            &kp V            &kp B            &kp N            &kp M              &kp COMMA          &os_dot_modtap     &kp RSHFT
+                &mo FUNCTION     &kp LALT         &os_lctrl_key    &lt NUMBER TAB    &os_rcmd_key     &kp BSPC         &lt NUMBER SPACE    &kp ENTER          &os_rctrl_key      &kp ESC
+            >;
+        };
 
+        /* ▼ レイヤー1：編集／記号（JIS記号に寄せた版） */
+        layer1 {
+            label = "CONTROL";
+            bindings = <
+                &os_move_prev_word &os_kill_prev_word &kp END          &os_move_next_word &kp QUESTION      &trans         &kill_to_start    &trans           &kp JP_UNDERSCORE &kp UP
+                &trans             &trans             &kp DEL          &kp RIGHT          &kp EXCL          &kp BSPC       &kp ENTER         &kill_to_end     &kp MINUS         &kp JP_TILDE
+                &trans             &kp SLASH          &kp JP_PIPE      &kp JP_YEN         &kp LEFT          &kp DOWN       &kp ENTER         &kp JP_DQUOTE    &kp JP_QUOTE      &kp JP_BACKQUOTE
+                &trans             &trans             &os_cut          &os_copy           &os_paste         &os_undo       &os_redo          &os_redo         &trans            &trans
+            >;
+        };
 
-    /* ▼ レイヤー1：編集／記号（JIS記号に寄せた版） */
-    layer1 {
-        label = "CONTROL"; 
-        bindings = <
-&move_prev_word     &kill_prev_word  &kp END          &move_next_word                &kp QUESTION          &trans           &kill_to_start        &trans              &kp JP_UNDERSCORE  &kp UP
-&trans    &trans           &kp DEL          &kp RIGHT             &kp EXCL              &kp BSPC         &kp ENTER             &kill_to_end        &kp MINUS          &kp JP_TILDE
-&trans      &kp SLASH        &kp JP_PIPE      &kp JP_YEN            &kp LEFT              &kp DOWN         &kp ENTER             &kp JP_DQUOTE       &kp JP_QUOTE       &kp JP_BACKQUOTE
-&trans      &trans           &kp LC(X)   &kp LC(C)        &kp LC(V)         &kp LC(Z)    &kp LC(Y)       &kp LC(LS(Z))     &trans             &trans
-        >;
-    };
+        /* ▼ レイヤー2：数字／記号（JIS記号を意識） */
+        layer2 {
+            label = "NUMBER";
+            bindings = <
+                &trans    &kp N1  &kp N2  &kp N3  &kp DOLLAR      &kp LT           &kp EXCL          &kp QUESTION      &kp JP_CARET    &kp JP_AT
+                &kp DOT   &kp N4  &kp N5  &kp N6  &kp JP_COLON    &kp JP_EQUAL     &kp JP_PLUS       &kp MINUS         &kp JP_ASTERISK &kp SLASH
+                &kp COMMA &kp N7  &kp N8  &kp N9  &kp SEMICOLON   &kp GT           &kp JP_AMPERSAND  &kp JP_PIPE       &kp PERCENT     &kp JP_YEN
+                &trans    &trans  &kp N0  &kp HASH &trans          &trans           &trans            &trans            &trans          &trans
+            >;
+        };
 
-    /* ▼ レイヤー2：数字／記号（JIS記号を意識） */
-    layer2 {
-        label = "NUMBER";
-        bindings = <
-&trans   &kp N1           &kp N2           &kp N3            &kp DOLLAR       &kp LT            &kp EXCL           &kp QUESTION        &kp JP_CARET      &kp JP_AT
-&kp DOT   &kp N4           &kp N5           &kp N6            &kp JP_COLON           &kp JP_EQUAL      &kp JP_PLUS        &kp MINUS           &kp JP_ASTERISK   &kp SLASH
-&kp COMMA   &kp N7           &kp N8           &kp N9            &kp SEMICOLON           &kp GT            &kp JP_AMPERSAND   &kp JP_PIPE         &kp PERCENT       &kp JP_YEN
-&trans   &trans           &kp N0           &kp HASH          &trans           &trans            &trans             &trans              &trans            &trans
-        >;
-    };
+        /* ▼ レイヤー3：マウス（修飾キー名をZMK準拠に修正） */
+        layer3 {
+            label = "MOUSE";
+            bindings = <
+                &kp LALT  &os_task_view &trans &os_show_desktop &mo MOUSE2 &mo MOUSE4 &click_and_exit2 &mkp MB3 &mkp MB2 &kp RALT
+                &kp LSHFT &trans        &trans &os_screenshot   &trans     &mkp MB1   &kp C_AC_BACK    &kp C_AC_REFRESH &kp C_AC_FORWARD &to DEFAULT_WIN
+                &trans    &trans        &trans &trans           &trans     &trans     &trans           &trans           &trans           &trans
+                &kp LSHFT &trans        &trans &kp LALT         &kp LSHFT  &kp LSHFT  &trans           &trans           &to DEFAULT_WIN  &kp RALT
+            >;
+        };
 
-    /* ▼ レイヤー3：マウス（修飾キー名をZMK準拠に修正） */
-    layer3 {
-        label = "MOUSE";
-        bindings = <
-&kp LALT     &kp LG(TAB)  &trans         &kp LG(D)          &mo MOUSE2    &mo MOUSE4   &click_and_exit2     &mkp MB3            &mkp MB2            &kp RALT
-&kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &mkp MB1          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to DEFAULT_WIN
-&trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
-&kp LSHFT    &trans       &trans            &kp LALT           &kp LSHFT    &kp LSHFT       &trans        &trans            &to DEFAULT_WIN               &kp RALT
-        >;
-    };
+        /* ▼ レイヤー4：矢印 */
+        layer4 {
+            label = "ARROW";
+            bindings = <
+                &trans   &os_move_prev_word &kp UP   &os_move_next_word &trans &trans       &trans     &ime_hw_kata &trans       &trans
+                &kp HOME &kp LEFT           &kp DOWN &kp RIGHT          &kp END &ime_fw_alnum &ime_hira &ime_kata    &ime_hw_alnum &trans
+                &trans   &trans             &trans   &trans             &trans &trans       &trans     &trans       &trans       &trans
+                &trans   &trans             &trans   &trans             &trans &trans       &trans     &trans       &trans       &trans
+            >;
+        };
 
-    /* ▼ レイヤー4：矢印 */
-    layer4 {
-        label = "ARROW";
-        bindings = <
-&trans  &move_prev_word     &kp UP     &move_next_word  &trans  &trans  &trans  &ime_hw_kata  &trans  &trans
-&kp HOME  &kp LEFT    &kp DOWN   &kp RIGHT  &kp END  &ime_fw_alnum  &ime_hira  &ime_kata  &ime_hw_alnum  &trans
-&trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans      &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans
-        >;
-    };
+        /* ▼ レイヤー5：ファンクション・BT・レイヤー移動 */
+        layer5 {
+            label = "FUNCTION";
+            bindings = <
+                &bt_sel0_win   &bt_sel1_win &bt_sel2_mac &bt_sel3_ipad &bt BT_SEL 4 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
+                &to DEFAULT_WIN &to VRC     &press_pswd1 &press_pswd2  &bt BT_CLR   &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
+                &trans         &trans       &trans       &trans        &bt BT_CLR_ALL &kp F11 &kp F12 &trans  &trans  &trans
+                &trans         &trans       &trans       &trans        &trans       &kp DEL &trans  &trans  &trans  &trans
+            >;
+        };
 
-    /* ▼ レイヤー5：ファンクション・BT・レイヤー移動 */
-    layer5 {
-        label = "FUNCTION";
-        bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&to DEFAULT_WIN        &to VRC        &press_pswd1        &press_pswd2        &bt BT_CLR      &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans          &kp DEL  &trans   &trans  &trans  &trans
-        >;
-    };
+        /* ▼ レイヤー6：VRC用 */
+        layer6 {
+            label = "VRC";
+            bindings = <
+                &kp Q     &kp W      &kp W      &kp R      &kp E      &kp Y      &mkp MB1   &mkp MB3   &mkp MB2   &kp P
+                &kp LSHFT &kp A      &kp S      &kp D      &kp G      &kp V      &kp LS(F1) &kp LS(F2) &kp LS(F3) &kp LS(F4)
+                &kp TAB   &mt LSHFT X &kp C     &kp Z      &kp B      &kp N      &kp LS(F5) &kp LS(F6) &kp LS(F7) &kp LS(F8)
+                &kp TAB   &kp LALT   &kp SPACE  &mo 0      &os_rcmd_key &kp ESC   &kp R      &lt NUMBER V &kp END    &to DEFAULT_WIN
+            >;
+        };
 
-    /* ▼ レイヤー6：VRC用*/
-    layer6 {
-        label = "VRC";
-        bindings = <
-&kp Q      &kp W     &kp W     &kp R        &kp E      &kp Y     &mkp MB1       &mkp MB3      &mkp MB2   &kp P
-&kp LSHFT     &kp A     &kp S     &kp D      &kp G      &kp V     &kp LS(F1)        &kp LS(F2)      &kp LS(F3)      &kp LS(F4)
-&kp TAB      &mt LSHFT X     &kp C     &kp Z      &kp B      &kp N       &kp LS(F5)        &kp LS(F6)      &kp LS(F7)      &kp LS(F8)
-&kp TAB  &kp LALT  &kp SPACE  &mo 0     &kp RCMD   &kp ESC  &kp R   &lt NUMBER V &kp END  &to DEFAULT_WIN
-        >;
-    };
+        /* ▼ レイヤー7：マウス低DPI */
+        layer7 {
+            label = "MOUSE2";
+            bindings = <
+                &kp LALT  &os_task_view &os_open_launcher &os_show_desktop &trans &mo MOUSE4 &click_and_exit2 &mkp MB3 &mkp MB2 &kp RALT
+                &kp LSHFT &trans        &trans            &os_screenshot   &trans &mkp MB1   &kp C_AC_BACK    &kp C_AC_REFRESH &kp C_AC_FORWARD &to DEFAULT_WIN
+                &trans    &trans        &trans            &trans           &trans &trans     &trans           &trans           &trans           &trans
+                &kp LSHFT &trans        &trans            &kp LALT         &kp LSHFT &kp LSHFT &os_lctrl_key  &kp RALT         &to DEFAULT_WIN  &kp RALT
+            >;
+        };
 
-    /* ▼ レイヤー7：マウス低DPI */
-    layer7 {
-        label = "MOUSE2";
-        bindings = <
-&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &mo MOUSE4           &click_and_exit2    &mkp MB3            &mkp MB2            &kp RALT
-&kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &mkp MB1          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to DEFAULT_WIN
-&trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
-&kp LSHFT    &trans       &trans            &kp LALT           &kp LSHFT    &kp LSHFT       &kp  LCTRL          &kp RALT            &to DEFAULT_WIN               &kp RALT
-        >;
-    };
+        /* ▼ レイヤー8：ダブルクリック用レイヤー */
+        layer8 {
+            label = "MOUSE3";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &click_and_exit2 &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans           &trans &trans &trans
+            >;
+        };
 
-    /* ▼ レイヤー8：ダブルクリック用レイヤー */
-    layer8 {
-        label = "MOUSE3";
-        bindings = <
-&trans       &trans       &trans       &trans       &trans       &trans       &click_and_exit2       &trans       &trans       &trans       
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-        >;
-    };
-    /* ▼ レイヤー9：右手スクロール用レイヤー*/
-    layer9 {
-        label = "MOUSE4";
-        bindings = <
-&kp LALT     &kp LG(TAB)  &kp LG(E)         &kp LG(D)          &trans   &trans          &click_and_exit2    &mkp MB3            &mkp MB2            &kp RALT
-&kp LSHFT    &trans       &trans            &kp LS(LG(S))      &trans   &mkp MB1          &kp C_AC_BACK       &kp C_AC_REFRESH    &kp C_AC_FORWARD    &to DEFAULT_WIN
-&trans       &trans       &trans            &trans             &trans   &trans          &trans              &trans              &trans              &trans
-&kp LSHFT    &trans       &trans            &kp LALT           &kp LSHFT    &kp LSHFT       &kp  LCTRL          &kp RALT            &to DEFAULT_WIN               &kp RALT
-        >;
-    };
+        /* ▼ レイヤー9：右手スクロール用レイヤー */
+        layer9 {
+            label = "MOUSE4";
+            bindings = <
+                &kp LALT  &os_task_view &os_open_launcher &os_show_desktop &trans &trans   &click_and_exit2 &mkp MB3 &mkp MB2 &kp RALT
+                &kp LSHFT &trans        &trans            &os_screenshot   &trans &mkp MB1 &kp C_AC_BACK    &kp C_AC_REFRESH &kp C_AC_FORWARD &to DEFAULT_WIN
+                &trans    &trans        &trans            &trans           &trans &trans   &trans           &trans           &trans           &trans
+                &kp LSHFT &trans        &trans            &kp LALT         &kp LSHFT &kp LSHFT &os_lctrl_key &kp RALT         &to DEFAULT_WIN  &kp RALT
+            >;
+        };
 
-    /* ▼ レイヤー10：FPS用*/
-    layer10 {
-        label = "FPS";
-        bindings = <
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-&trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       
-        >;
-    };
+        /* ▼ レイヤー10：FPS用 */
+        layer10 {
+            label = "FPS";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+            >;
+        };
     };
 
 
