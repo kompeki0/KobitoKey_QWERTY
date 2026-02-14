@@ -106,8 +106,11 @@
             index = <1>;
             fallback = <0>;
             case-values = <1 2>;
-            bindings = <&kp A>, <&kp B>;
-            default-binding = <&kp C>;
+            bindings = <
+            &kp A
+            &kp B
+            &kp C
+            >;
         };
     };
 
