@@ -17,7 +17,7 @@ manifest:
     # ZMK 本体。公式の app/west.yml を取り込む
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 6e7e0de
       import: app/west.yml
 
     # PMW3610 ドライバ（外部モジュール）
