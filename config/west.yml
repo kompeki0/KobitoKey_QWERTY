@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/hsgw
     - name: caksoylar  # <-- led
       url-base: https://github.com/caksoylar  
+    - name: kompeki0
+      url-base: https://github.com/kompeki0
 
   projects:
     # ZMK 本体。公式の app/west.yml を取り込む
@@ -34,6 +36,11 @@ manifest:
     - name: zmk-rgbled-widget  # <-- led
       remote: caksoylar
       revision: main
+
+    - name: zmk-variables
+      remote: kompeki0
+      revision: main
+      clone-depth: 1
       
   self:
     path: config
