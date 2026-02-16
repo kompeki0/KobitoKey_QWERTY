@@ -309,7 +309,7 @@
             fallback = <0>;
             case-values = <2 3>;
             bindings = <
-            &kp LS(LG(N4))
+            &kp LS(LG(N5))
             &kp LS(LG(N3))
             &kp LS(LG(S))
             >;
