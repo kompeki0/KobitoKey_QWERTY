@@ -16,4 +16,4 @@ include:
    cmake-args: >-
       -DZMK_EXTRA_MODULES=/__w/KobitoKey_QWERTY/KobitoKey_QWERTY\;/tmp/zmk-config/config/modules/tb_touchpad
       -DDTC_OVERLAY_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.overlay
-      -DCONF_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.conf
+      -DEXTRA_CONF_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.conf
