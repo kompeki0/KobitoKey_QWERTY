@@ -67,7 +67,7 @@ static void emit_touchpad_report(uint8_t updated_contact) {
         }
     }
 
-    (void)zmk_endpoints_send_touchpad_report();
+    (void)zmk_endpoint_send_touchpad_report();
 }
 
 static int tb_touchpad_handle_event(const struct device *dev, struct input_event *event,
@@ -116,4 +116,3 @@ static const struct zmk_input_processor_driver_api tb_touchpad_driver_api = {
                           CONFIG_KERNEL_INIT_PRIORITY_DEFAULT, &tb_touchpad_driver_api);
 
 DT_INST_FOREACH_STATUS_OKAY(TB_TOUCHPAD_INST)
-
