@@ -10,10 +10,10 @@ include:
    shield: settings_reset
 
  - board: xiao_ble
-   shield: KobitoKey_left rgbled_adapter
+   shield: KobitoKey_left
    snippet: studio-rpc-usb-uart
    artifact-name: kobitokey-left-touchpad-test
    cmake-args: >-
-         -DZMK_EXTRA_MODULES=/__w/KobitoKey_QWERTY/KobitoKey_QWERTY;/tmp/zmk-config/config/modules/tb_touchpad
-         -DDTC_OVERLAY_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.overlay
-         -DCONF_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.conf
+      -DZMK_EXTRA_MODULES=/__w/KobitoKey_QWERTY/KobitoKey_QWERTY;/tmp/zmk-config/config/modules/tb_touchpad
+      -DDTC_OVERLAY_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.overlay
+      -DCONF_FILE=/tmp/zmk-config/config/touchpad_experiment/KobitoKey_left_touchpad_test.conf
