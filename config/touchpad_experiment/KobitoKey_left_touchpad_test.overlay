@@ -1,6 +1,33 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
+    aliases {
+        led-red = &widget_led_red;
+        led-green = &widget_led_green;
+        led-blue = &widget_led_blue;
+    };
+
+    rgbled_widget_leds {
+        compatible = "gpio-leds";
+        status = "okay";
+
+        widget_led_red: widget_led_red {
+            gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+            label = "XIAO RGB RED";
+        };
+
+        widget_led_green: widget_led_green {
+            gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+            label = "XIAO RGB GREEN";
+        };
+
+        widget_led_blue: widget_led_blue {
+            gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+            label = "XIAO RGB BLUE";
+        };
+    };
+
     tb_left_to_touchpad: tb_left_to_touchpad {
         compatible = "zmk,input-processor-tb-touchpad";
         status = "okay";
@@ -21,4 +48,3 @@
 &tb_right_listener {
     input-processors = <&tb_right_to_touchpad 1 12>;
 };
-
