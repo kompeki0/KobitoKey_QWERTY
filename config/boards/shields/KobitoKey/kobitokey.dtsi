@@ -10,8 +10,8 @@
 / {
     aliases {
         led-red = &widget_led_red;
-        led-green = &widget_led_green;
-        led-blue = &widget_led_blue;
+        led-green = &widget_led_red;
+        led-blue = &widget_led_red;
     };
 
     rgbled_widget_leds {
@@ -21,16 +21,6 @@
         widget_led_red: widget_led_red {
             gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
             label = "XIAO RGB RED";
-        };
-
-        widget_led_green: widget_led_green {
-            gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
-            label = "XIAO RGB GREEN";
-        };
-
-        widget_led_blue: widget_led_blue {
-            gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
-            label = "XIAO RGB BLUE";
         };
     };
     /* 行列スキャン：rowは左右共通、colは左右で分ける */
