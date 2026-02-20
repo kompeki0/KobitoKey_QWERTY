@@ -14,5 +14,5 @@ include:
    snippet: studio-rpc-usb-uart
    artifact-name: kobitokey-left-touchpad-test
    cmake-args: >-
-     -DDTC_OVERLAY_FILE=/config/touchpad_experiment/KobitoKey_left_touchpad_test.overlay
-     -DCONF_FILE=/config/touchpad_experiment/KobitoKey_left_touchpad_test.conf
+         -DDTC_OVERLAY_FILE=${ZMK_CONFIG}/touchpad_experiment/KobitoKey_left_touchpad_test.overlay
+         -DCONF_FILE=${ZMK_CONFIG}/touchpad_experiment/KobitoKey_left_touchpad_test.conf
