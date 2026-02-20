@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/input_transform.h>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 #include "KobitoKey-layouts.dtsi"
 
 
@@ -7,6 +8,31 @@
         nfct-pins-as-gpios;
 };
 / {
+    aliases {
+        led-red = &widget_led_red;
+        led-green = &widget_led_green;
+        led-blue = &widget_led_blue;
+    };
+
+    rgbled_widget_leds {
+        compatible = "gpio-leds";
+        status = "okay";
+
+        widget_led_red: widget_led_red {
+            gpios = <&gpio0 26 GPIO_ACTIVE_LOW>;
+            label = "XIAO RGB RED";
+        };
+
+        widget_led_green: widget_led_green {
+            gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
+            label = "XIAO RGB GREEN";
+        };
+
+        widget_led_blue: widget_led_blue {
+            gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+            label = "XIAO RGB BLUE";
+        };
+    };
     /* 行列スキャン：rowは左右共通、colは左右で分ける */
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-matrix";
