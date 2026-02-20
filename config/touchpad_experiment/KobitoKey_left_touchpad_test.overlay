@@ -1,0 +1,24 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
+/ {
+    tb_left_to_touchpad: tb_left_to_touchpad {
+        compatible = "zmk,input-processor-tb-touchpad";
+        status = "okay";
+        #input-processor-cells = <2>;
+    };
+
+    tb_right_to_touchpad: tb_right_to_touchpad {
+        compatible = "zmk,input-processor-tb-touchpad";
+        status = "okay";
+        #input-processor-cells = <2>;
+    };
+};
+
+&tb_left_listener {
+    input-processors = <&tb_left_to_touchpad 0 12>;
+};
+
+&tb_right_listener {
+    input-processors = <&tb_right_to_touchpad 1 12>;
+};
+

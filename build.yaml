@@ -8,3 +8,12 @@ include:
 
  - board: xiao_ble
    shield: settings_reset
+
+ - board: xiao_ble
+   shield: KobitoKey_left rgbled_adapter
+   snippet: studio-rpc-usb-uart
+   artifact-name: kobitokey-left-touchpad-test
+   cmake-args: >-
+     -DDTC_OVERLAY_FILE=config/touchpad_experiment/KobitoKey_left_touchpad_test.overlay
+     -DCONF_FILE=config/touchpad_experiment/KobitoKey_left_touchpad_test.conf
+     -DZMK_EXTRA_MODULES=config/modules/tb_touchpad

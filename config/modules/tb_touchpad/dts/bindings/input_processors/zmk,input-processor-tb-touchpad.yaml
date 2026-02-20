@@ -1,0 +1,9 @@
+# Copyright (c) 2026
+# SPDX-License-Identifier: MIT
+
+description: Convert relative trackball movement into touchpad contacts
+
+compatible: "zmk,input-processor-tb-touchpad"
+
+include: ip_two_param.yaml
+

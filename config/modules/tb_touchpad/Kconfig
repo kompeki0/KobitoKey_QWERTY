@@ -1,0 +1,19 @@
+if ZMK_POINTING
+
+config ZMK_INPUT_PROCESSOR_TB_TOUCHPAD
+    bool "Trackball to Touchpad Input Processor"
+    default y
+    depends on DT_HAS_ZMK_INPUT_PROCESSOR_TB_TOUCHPAD_ENABLED
+    help
+      Convert relative X/Y movement into absolute multi-contact touchpad coordinates.
+      param1 is the contact ID (0..1), param2 is movement gain.
+
+config ZMK_INPUT_PROCESSOR_TB_TOUCHPAD_ACTIVE_MS
+    int "Trackball contact active time (ms)"
+    default 35
+    depends on ZMK_INPUT_PROCESSOR_TB_TOUCHPAD
+    help
+      How long a contact remains active after the last sync event.
+
+endif
+
